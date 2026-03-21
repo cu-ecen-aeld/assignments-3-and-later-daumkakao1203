@@ -14,9 +14,15 @@
 */
 void test_validate_my_username()
 {
-    /**
-     * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
-     * config file and my_username() functions are setup properly
-     */
-    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+    // 1) autotest-validate.c에 있는 하드코딩된 내 유저네임 가져오기
+    const char *hardcoded_username = my_username();
+
+    // 2) conf/username.txt 파일에서 읽어온 유저네임 가져오기 (동적 할당됨)
+    char *conf_username = malloc_username_from_conf_file();
+
+    // 3) 두 문자열이 완벽히 일치하는지 확인하기
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(hardcoded_username, conf_username, "The usernames do not match! Please check conf/username.txt and my_username() in autotest-validate.c");
+
+    // 할당된 메모리 해제
+    free(conf_username);
 }
