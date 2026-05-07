@@ -15,12 +15,6 @@ fi
 
 WRITEDIR=/tmp/aeld-data/$writestr
 
-if [ "$assignment" = 'assignment2' ]
-then
-	make clean
-	make
-fi
-
 rm -rf "$WRITEDIR"
 mkdir -p "$WRITEDIR"
 
