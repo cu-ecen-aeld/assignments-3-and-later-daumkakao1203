@@ -26,12 +26,12 @@ fi
 
 for i in $(seq 1 $numfiles)
 do
-	./writer "$WRITEDIR/${i}.txt" "$writestr"
+	writer "$WRITEDIR/${i}.txt" "$writestr"
 done
 
-OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$GREPSTR")
+OUTPUTSTRING=$(finder.sh "$WRITEDIR" "$GREPSTR")
 
-echo "$OUTPUTSTRING" > /tmp/assignment-4-result.txt
+echo "$OUTPUTSTRING" > /tmp/assignment4-result.txt
 
 set +e
 echo "$OUTPUTSTRING" | grep "The number of files are $numfiles and the number of matching lines are $numfiles"
